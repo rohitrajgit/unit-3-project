@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit-3 PSC</title>
+</head>
+<body>
+    <div id="navbar">
+      
+    </div>
+    <button>
+      <a href="displaystudent.html">Dashboard</a>
+    </button>
+    <h1>STUDENT DETAILS</h1>
+    <form onsubmit="Submit(event)" id="form">
+        <input type="text" placeholder="Enter_name" id="name">
+       <select name="" id="course">
+        <option value="Web Devlopment">WEB DEVLOPMENT</option>
+        <option value="Data Analiytics">Data Analiytics</option>
+        <option value="Android Devlopment">Android Devlopment</option>
+       </select>
+       <select name="" id="unit">
+        <option value="Unit-1">Unit-1</option>
+        <option value="Unit-2">Unit-2</option>
+        <option value="Unit-3">Unit-3</option>
+        <option value="Unit-4">Unit-4</option>
+        <option value="Unit-5">Unit-5</option>
+        <option value="Unit-6">Unit-6</option>
+       </select>
+       <input type="img_url" placeholder="Image_Url" id="image">
+       <select name="" id="batch">
+        <option value="FT-Web-19">FT-WEB-19</option>
+        <option value="FT-Web-18">FT-WEB-18</option>
+        <option value="FT-Web-17">FT-WEB-17</option>
+        <option value="FT-Web-16">FT-WEB-16</option>
+        <option value="FT-Web-15">FT-WEB-15</option>
+       </select>
+       <input type="submit" id="submit">
+    </form>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let data=JSON.parse(localStorage.getItem("studentdata"))||[];
+    function Submit(e){
+        e.preventDefault();
+        let form=document.getElementById('form');
+        let name=form.name.value;
+        let course=form.course.value;
+        let unit=form.unit.value;
+        let image=form.image.value;
+        let batch=form.batch.value;
+
+        let details= new studentdetails(name,course,unit,image,batch)
+        data.push(details);
+        console.log(data)
+        
+        localStorage.setItem("studentdata",JSON.stringify(data));
+    }
+
+    function studentdetails(n,c,u,i,b){
+        this.name=n;
+        this.course=c;
+        this.unit=u;
+        this.image=i;
+        this.batch=b;
+    }
+function calculate(){
+    let data=JSON.parse(localStorage.getItem("studentdata"))||[];
+
+    let obj={}
+    for(var i=0;i<data.length;i++)
+    {
+        if(obj[data[i].batch]==undefined)
+        {
+            obj[data[i].batch]=1;
+        }
+        else{
+            obj[data[i].batch]++;
+        }
+    }
+  
+    for(var key in obj){
+    let p=document.createElement("p")
+    p.innerText=key+" "+obj[key];
+    document.querySelector("#navbar").append(p)
+    
+    }
+
+   
+}
+calculate();
+
+    
+</script>
