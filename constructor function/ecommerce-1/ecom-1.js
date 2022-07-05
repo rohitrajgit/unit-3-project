@@ -1,3 +1,4 @@
+
 let arr=JSON.parse(localStorage.getItem("productdata"))||[];
 function Submit(e){
     e.preventDefault();
@@ -24,18 +25,4 @@ function Ecommproduct(n,c,i,p,s){
     this.select=s;
 }
 
-function displayitem(productdata){
-    productdata.forEach(function(el){
-        let img=document.createElement("img")
-        img.src=el.image;
-        let p=document.createElement("p")
-        p.innerText=el.productname;
-        let div=document.createElement("div")
-        div.append(img,p)
 
-        document.querySelector("#container").append(div)
-    })
-
-}
-
-displayitem();
