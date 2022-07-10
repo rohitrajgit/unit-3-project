@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #container{
+            width: 200px;
+            margin: auto;
+            padding: 30px;
+            margin-top: 30px;
+            background-color: #f2fdff ;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .main{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="container">
+        <label for="">Email</label>
+        <input type="text" placeholder="Enter email" id="email">
+        <label for="">Password</label>
+        <input type="password" placeholder="Enter password" id="password">
+        <input type="submit" id="btn">
+    </form>
+</body>
+</html>
+<script>
+
+    let form=document.querySelector("form")
+    let datafromsignup=JSON.parse(localStorage.getItem("userdata"))||[];
+    form.addEventListener("submit",loginup)
+    function loginup(event){
+        event.preventDefault();
+        let data={
+            email:form.email.value,
+            password:form.password.value
+        }
+       if(checklogin(data.email,data.password)===true){
+        localStorage.setItem("signindata",JSON.stringify(data))
+        alert("signin Successful")
+        window.location.href="fetch-2.html"
+       }else{
+        alert("Wrong Email & Password")
+       }
+    }
+
+    function checklogin(email,password){
+        let filtered=datafromsignup.filter(function(elm){
+            return elm.email===email && elm.password===password;
+        })
+
+        if(filtered>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

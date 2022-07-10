@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 200px;
+            margin: auto;
+            padding: 30px;
+            margin-top: 30px;
+            background-color: #f2fdff ;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .main{
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="container">
+        <label for="">Username</label>
+        <input type="text" placeholder="username" id="name">
+        <label for="">Email</label>
+        <input type="text" placeholder="Enter email" id="email">
+        <label for="">Password</label>
+        <input type="password" placeholder="Enter password" id="password">
+        <input type="submit" id="btn">
+        <br>
+        <p>if you have already account</p>
+        <a href="login.html">login</a>
+    </form>
+</body>
+</html>
+<script>
+    
+    let form=document.querySelector("form")
+        form.addEventListener("submit",myfunct)
+    let userdata=JSON.parse(localStorage.getItem("userdata"))||[];
+    function myfunct(event){
+        event.preventDefault();
+
+        let data={
+            name:form.name.value,
+            email:form.email.value,
+            password:form.password.value
+        }
+       
+        if(checkemail(data.email)===true){
+            userdata.push(data);
+            localStorage.setItem("userdata",JSON.stringify(userdata));
+            alert("signup successful")
+        }
+        else{
+            alert("Account already Exist")
+        }
+
+    }
+
+    function checkemail(email){
+        let filter=userdata.filter(function(elm){
+            return email===elm.email;
+        })
+        if(filter.length>0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+   
+</script>

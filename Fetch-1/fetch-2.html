@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+            background-color:#eeebe4;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+      #main>div{
+            width: 30%;
+            height: 100%;
+           
+      }
+        #cont>div{
+            justify-content: flex-end;
+        }
+        #first>img{
+            width: 20%;
+            display: block;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        #cont{
+            display: flex;
+            justify-content: flex-end;
+        }
+        #cont>div{
+            margin-right: 20px;
+        }
+        #movie{
+            width: 80%;
+            height: 100%;
+        }
+        #displayitem{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="main">
+        <!-- navbar -->
+        <div  id="first">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAAB+CAMAAABGdeAYAAAAsVBMVEX///+xBg/lCRSwAAC3Q0PkAACdAw/oCRTdrq+sAAD58PC9S03wk5WoBQ+wAAj15+e6PT60KCqzHSCjBA+bAACzFRbulpaVAA7lAAraCxWlMjP8+PjQODjLCRPujI3nRUXCBxL409ToTU3voqPiu7z2yMm1NjbpYWPEAAbyq6zsc3PlFxz63+DmLjPoVlbytbbqenvlKCnmOjynQ0SgHCHEY2XIcHLYnp/AV1jKgIDrz8+elrrDAAAEeklEQVR4nO3cW1fbOhAFYF+wXLsIAQqx3TRcWhKaGwlpTzmn//+HHQkacGztlqdmz1rVK3r4orU9mRHgKPq7ZK7PQ7+Oe6vs7Rzdvguu2wOod+tjFl6T3s7ytAiu6QHUu3VaJ6GV3fV2lu/TOLDSowOod+uoyUP6vB51d1LqvwT1STbr7qTUp0F8ks27h0+pL5qgPl8sOzsp9Wn8xuhw6i3Qrzo7OfXxGPA70SHVx+C5Pd7fSarX4ec2u9/vFlj1KDo3eztZ9ajqXO7tJNXHVTj4dba3k1Vv3xQdVn2sQdWZt3fS6lW46tRXprWTVm+vQXTWrZ20eo26hU1rJ60+rsLRSbLWF1Z5xKpXb4gOr15bcPb3rzt59a7qhMfbh9eSz6y/Bof/OqMQ67VC0XkZb5n1VTg6SfbyhUWsj9VvG01mvUXdwlaCXivQaNa7G83ylFfvogOe2110uPWg6tQrI0CvKzSjTAToY6WB/k6CHlWdPBkJ0OsKNZozCXp1AarOXIA+VmBGqZ8vw8n1FkZnLUCvlQL6rQC9iw4q+UaA3sLxdihAr5X9xWU4vx7ejLjxtvzArXedGppRjr2+4NZbhS7DawF6javOjdMPuPU+OiD4GwF6i6pOfVU6vebW/yI6awl6OKNsnN5y633VQSXffBgofj2cUb4OVCA6THofnfDZ11unD0SHSe9qJrgMTxL/M3K9VajRzK+dvh8dKr2LDvgVXNI4fT86bHpUdXIbig6V3kcHNJr5uJKgB7+CS5oqEHwuvYsOugwPVh0uvROiL6x8zK/3zyaKTqBmkul91QHRyeN+zSTT+3CDRjN3zy273kdnAbLTjw6b3lcd8Nz6qkOuf6qLYXyg6jDqv6FGU9PrXfC/DbPw4V9XnejQ6d35Dn4Afa/q0OlddAZmDvi2Ex0+vXX69Rujw6fXTm+24f9lahS93g5MdBc+/G7V4dPHXj9B0aHXa6ePMlDy94NPqI8rp9+Aw9d7NZNQf6Kc/gbo3XhLrrdObz6BqmPb0WHVR5eg6sTs+guvh9FpVx1afbQIRyeXoUeNZlxpAfolKPlNq+rw6keoW7AS9NFn2C1oAXqThP8sv3n9uiXWR5/gjCJBDxvNSoLegJLfvNRMZj3sFi6UBD0eb4n15zv9aIXGWy1AH6GbEW0l6NG11LiSoC/BzUjys+pw62G3EFsJ+ski3C38jA65PgLjbSLi7PGMYiXoDboMVxL06EYzp9WftfUzFB0tQb9El+FWgh5fhovQw0ZTS9BH4Ox91RGgh42mCD0cb7UEvbkCVUeEHl+Gi9Cj6IwZ9em0o0eX4YkWoQfRyTnPvvtm1SUq+QWh/rSrL1G3wHj2R7232oIZJfnCoz95Wmla9PXm6WW3dV3neXvOzZtD6x3XrSI9uTg/PzubTt//8/2x91rYaLiZ31+tVquHh0VSP7+4t3afoz6kfloURTr99/t/j4/vbn8sTf89yN1VmuVkPRsOL+f3W/8pPv4BJVqObIwp+0f9+zVyn2M5mfVef/t3CVn/AwSibweiwjLtAAAAAElFTkSuQmCC" alt="error">
+        </div>
+        <div id="middle">
+            <input type="text" placeholder="movie_name" id="movie">
+            <button onclick="getitem()">Search</button>
+        </div>
+        <div  id="cont">
+            <div><a href="signup.html">signup</a></div>
+        </div>
+    </div>
+    <div id="displayitem"></div>
+</body>
+</html>
+<script>
+    function getitem(){
+        let movies=document.getElementById("movie").value;
+
+        let url=`https://www.omdbapi.com/?apikey=a18d5312&s=${movies}`
+
+        fetch(url).then((res)=>{
+         return res.json();
+        }).then((res)=>{
+            console.log(res)
+            append(res.Search)
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    function append(data){
+        let container=document.getElementById("displayitem")
+        if(data){
+            data.forEach((el)=>{
+        let img=document.createElement("img")
+        img.src=el.Poster;
+        let h3=document.createElement("h3")
+        h3.innerText=el.Title;
+        let p=document.createElement('p')
+        p.innerText=`released data:-${el.Year}`
+
+        let div=document.createElement("div")
+        div.append(img,h3,p)
+        container.append(div)
+       })
+        }else{
+           let h1=document.createElement("h1")
+           h1.innerText="Movie not found"
+           container.append(h1)
+        }
+       
+      
+    }
+</script>
